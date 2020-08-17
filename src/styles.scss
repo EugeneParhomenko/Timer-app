@@ -1,1 +1,96 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500;600;700;800&display=swap');
+
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 500;
+    color: #222;
+    font-family: 'Baloo Tamma 2', cursive;
+}
+
+body {
+    background-image: -webkit-gradient(linear, right bottom, left top, from(rgb(79, 205, 255)), color-stop(rgb(91, 196, 247)), color-stop(rgb(102, 187, 239)), color-stop(rgb(114, 178, 231)), color-stop(rgb(125, 169, 223)), color-stop(rgb(137, 160, 215)), color-stop(rgb(148, 152, 208)), color-stop(rgb(160, 143, 200)), color-stop(rgb(171, 134, 192)), color-stop(rgb(183, 125, 184)), color-stop(rgb(194, 116, 176)), to(rgb(206, 107, 168)));
+    background-image: -o-linear-gradient(bottom right, rgb(79, 205, 255), rgb(91, 196, 247), rgb(102, 187, 239), rgb(114, 178, 231), rgb(125, 169, 223), rgb(137, 160, 215), rgb(148, 152, 208), rgb(160, 143, 200), rgb(171, 134, 192), rgb(183, 125, 184), rgb(194, 116, 176), rgb(206, 107, 168));
+    background-image: linear-gradient(to top left, rgb(79, 205, 255), rgb(91, 196, 247), rgb(102, 187, 239), rgb(114, 178, 231), rgb(125, 169, 223), rgb(137, 160, 215), rgb(148, 152, 208), rgb(160, 143, 200), rgb(171, 134, 192), rgb(183, 125, 184), rgb(194, 116, 176), rgb(206, 107, 168));
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+
+    .app-body {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        padding: 350px 0 0;
+        max-width: 600px;
+        margin: 0 auto;
+
+        .time-output {
+            font-size: 90px;
+            font-weight: 400;
+        }
+
+        .controls {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: row;
+                    flex-direction: row;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+
+            button {
+                width: 100px;
+                height: 50px;
+                font-size: 14px;
+                text-transform: uppercase;
+                font-weight: 500;
+                color: #fff;
+                cursor: pointer;
+                letter-spacing: 0.5px;
+                background: rgb(255 255 255 / 0.1);
+                margin: 0 10px;
+                border: 1px solid #fff;
+                border-radius: 30px;
+                outline: none;
+                -webkit-box-shadow: 0 0 20px -5px rgb(0 0 0 / 0.01);
+                        box-shadow: 0 0 20px -5px rgb(0 0 0 / 0.01);
+                -webkit-transition: all 0.3s ease;
+                -o-transition: all 0.3s ease;
+                transition: all 0.3s ease;
+                
+            }
+            button:hover {
+                background: rgb(255 255 255 / 0.25);
+                -webkit-box-shadow: 0 0 20px -5px rgb(0 0 0 / 0.2);
+                        box-shadow: 0 0 20px -5px rgb(0 0 0 / 0.2);
+            }
+        }
+    }
+}

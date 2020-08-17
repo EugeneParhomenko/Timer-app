@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "timer-app"
+    }
+  },
+  "defaultProject": "timer-app",
+  "cli": {
+    "analytics": "802d12ff-4c13-41f2-9d44-519ac85f748e"
+  }
 }
