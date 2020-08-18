@@ -17,7 +17,8 @@ export class AppComponent implements AfterViewInit {
   toggleTimerText: string = 'Start';  // Start or Pause
   timerStatus: boolean = false;  // TRUE - playing timer; FALSE - paused/stopped timer;
   isSingleClick: boolean = false;
-  @ViewChild('wait') wait: ElementRef;
+  @ViewChild('wait') 
+  private wait: ElementRef;
 
   ngAfterViewInit(): void {
     const click = fromEvent(this.wait.nativeElement, 'click');
