@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { timer, Subscription } from 'rxjs';
+import { fromEvent, asyncScheduler } from 'rxjs';
+import { throttleTime, debounceTime, buffer, map, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'edm-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'Timer application';
 
   numbers: Subscription;
@@ -15,6 +17,27 @@ export class AppComponent {
   toggleTimerText: string = 'Start';  // Start or Pause
   timerStatus: boolean = false;  // TRUE - playing timer; FALSE - paused/stopped timer;
   isSingleClick: boolean = false;
+  @ViewChild('wait') wait: ElementRef;
+
+  ngAfterViewInit(): void {
+    const click = fromEvent(this.wait.nativeElement, 'click');
+    const buffered = click.pipe(
+      debounceTime(300),
+    );
+    const click$ = click.pipe(
+      buffer(buffered),
+      map(list => {
+        return list.length;
+      }),
+      filter(x => x === 2),
+    );
+
+    click$.subscribe(() => {
+      if (this.numbers) {
+        this.pauseTimer();
+      }
+    });
+  }
 
   public resetTimer(): void {
     this.stopTimer();
@@ -27,18 +50,6 @@ export class AppComponent {
     } else {
       this.pauseTimer();
     }
-  }
-
-  public doubleClick(): void {
-    if (this.isSingleClick) {
-      if (this.timerStatus) {
-        this.pauseTimer();
-      }
-    }
-    this.isSingleClick = true;
-    setTimeout(() => {
-      this.isSingleClick = false;
-    }, 300);
   }
 
   public startTimer(): void {

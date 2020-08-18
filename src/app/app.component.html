@@ -2,7 +2,7 @@
   <div class="time-output">{{ timer | edmTimer }}</div>
   <div class="controls">
     <button type="button" (click)="toggleTimer()">{{ toggleTimerText }}</button>
-    <button type="button" (click)="doubleClick()">Wait</button>
+    <button type="button" #wait>Wait</button>
     <button type="button" (click)="stopTimer()">Stop</button>
     <button type="button" (click)="resetTimer()">Reset</button>
   </div>
